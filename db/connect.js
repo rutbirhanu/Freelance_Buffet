@@ -1,8 +1,11 @@
 const mongoose = require("mongoose")
 
 const connectDB = (url) => {
-   return mongoose.connect(url).then(() => { console.log("connected to the DB") }).catch((err)=>{console.log(err)})
+   return mongoose.connect(url, {
+      useUnifiedTopology: true,
+      useNewUrlParser: true
+   }).then(() => { console.log("connected to the DB") }).catch((err) => { console.log(err) })
 }
 
-module.exports=connectDB
+module.exports = connectDB
 
